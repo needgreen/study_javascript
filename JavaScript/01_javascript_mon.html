@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .gugudan {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    </style>
+
+    <script>
+      /**
+       * 구구단 결과물 .gugudan div에 추가합니다.
+       * @param {string} calcResult - 표시할 구구단 계산 결과
+       * @returns {Element} - 구구단 Element(요소)
+       */
+      function gugudanItem(calcResult) {
+        const gugudanDiv = document.querySelector(".gugudan");
+        const item = document.createElement("div");
+
+        item.textContent = calcResult;
+
+        gugudanDiv.appendChild(item);
+      }
+
+      window.onload = function () {
+        // 구구단의 'n단'의 정보를 담는 변수
+        const gugudanStep = 2;
+
+        /*
+					:: README ::
+					종원이는 선생님이 타이핑으로 구구단 차트를 만드는 모습을 보고
+					너무 안쓰러워 최첨단 구구단 작성 프로그램을 만들어주기로 했다.
+					다음 `gugudanItem` 함수와 `for`문을 사용하여 이용하여 구구단을 표현해보자!
+					1. `for`문을 사용하여 2단을 표현해보자.
+					2. `for`문을 중첩(for { for { ... } })하여 2단 ~ 9단의 구구단을 한꺼번에 표현해보자.
+					for문 기본 문법
+						* for (let i = 0; i <= 10; i++) { ... }
+						* `let i` => 초기화 값
+						* `i <= 10` => i 변수가 10 이하이거나 같을 때
+						* `i++` => i의 변수를 1 올린다. (`i += 1`, `i += 2` 도 가능)
+						* 변수 사용 방법 => gugudanItem(i). i는 처음 선언한 i의 변수와 이름이 같게 되어야 한다.
+				*/
+
+        /////////////
+        // :: SOLVEME ::
+
+        gugudanItem(`${gugudanStep}단`);
+        gugudanItem(`2x2=${gugudanStep * 2}`);
+        gugudanItem(`2x3=${gugudanStep * 3}`);
+        gugudanItem(`.`);
+        gugudanItem(`.`);
+        gugudanItem(`.`);
+        gugudanItem(`2x9=${gugudanStep * 9}`);
+
+        /////////////
+
+        
+        for (let gugudanStep = 3; gugudanStep <= 9; gugudanStep++) {
+          // 3단부터 9단까지 1씩 증가 
+          gugudanItem(`${gugudanStep}단`);
+
+          // 구구단의 결과 (gugudanStep x 1 ~ gugudanStep x 9)
+          for (let i = 1; i <= 9; i++) { 
+          //i 변수를 1부터 9까지 1씩 증가, 9줄을 순서대로 추가
+            gugudanItem(`${gugudanStep} x ${i} = ${gugudanStep * i}`);
+          }
+        }
+      };
+      
+    </script>
+  </head>
+  <body>
+    <div class="gugudan"></div>
+  </body>
+</html>
