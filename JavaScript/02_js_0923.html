@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      /*
+				:: README ::
+				취업이 잘 되지 않아 자택경비원을 택한 종원은 회사같은 느낌을 주기 위해 출입문을 RFID로 개조했다.
+				부모님과 동생에게 RFID 카드를 나눠주고 카드를 찍으면 내 모니터에 누가 들어왔는지 표시되게 하려고 한다.
+				RFID 카드로 사람을 식별하는 최첨단 프로그램을 만들어보도록 하자!
+				:: 요구사항 ::
+				1. `if문`을 사용해 `상수(const) myRFID_Code의 122412`를 입력했을때 메세지를 띄워보자.
+					1.1. if true = "OO님이 들어오셨습니다."
+					1.2. if false = "누구쇼?"
+				:: 요구사항 2 ::
+				1. `if문`대신 `switch문`을 사용해보자
+				1.1. rfidDB 객체 배열을 사용해서 밑과 같은 코드로 동작하게 해보자
+				ex) switch { case rfidDB[0].rfid: [source code]; default: [source code]; }
+				:: 키워드 ::
+				if문(조건문)
+			*/
+
+      /*
+      	:: 심화, 객체 배열 ::
+      	const rfidDB = [
+      		{ name: "종원", rfid: 122412 },
+      		{ name: "엄마", rfid: 231231 },
+      		{ name: "아빠", rfid: 123123 },
+      		{ name: "동생", rfid: 321321 },
+      	];
+				:: 요구사항 ::
+				1. `for문`을 사용해보자
+      	2. rfidDB 배열을 이용해 RFID 코드를 입력하면 누가 들어왔는지 표시되게 해보자
+				:: 키워드 ::
+				for문, 객체 배열, 배열, switch문
+      */
+      const myRFID_Code = 122412;
+
+      function checkRFID(rfid) {
+        // 여기에 코드를 작성해 주세요.
+        const value = document.getElementById("rfidInput").value;
+
+        return `RFID 코드 ${value}님이 들어오셨습니다.`;
+      }
+    </script>
+  </head>
+  <body>
+    <label for="rfidInput">RFID 코드 입력: </label>
+    <input type="number" id="rfidInput" />
+    <button onclick="alert(checkRFID(Number(rfidInput.value)))">출입</button>
+  </body>
+</html>
+
+<!-- 
+	:: 정답 ::
+	const rfidDB = [
+		{ name: "종원", rfid: 122412 },
+		{ name: "엄마", rfid: 231231 },
+		{ name: "아빠", rfid: 123123 },
+		{ name: "동생", rfid: 321321 },
+	];
+	function checkRFID(rfid) {
+		// 여기에 코드를 작성해 주세요.
+		const value = document.getElementById("rfidInput").value;
+		for (let i = 0; i < rfidDB.length; i++) {
+			if (
+				document.getElementById("rfidInput").value !== "" &&
+				!isNaN(value) &&
+				rfidDB[i].rfid === rfid
+			) {
+				return `${rfidDB[i].name}님이 들어오셨습니다.`;
+			}
+			return "누구쇼?";
+		}
+	}
+-->
