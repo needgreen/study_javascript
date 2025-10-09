@@ -10,35 +10,10 @@
   <body>
     <div class="container">
       <!-- 헤더 영역 -->
-      <header class="header">
-        <div class="header-content">
-          <div class="logo">Dashboard</div>
-          <nav>
-            <ul class="nav-menu">
-              <li><a href="/">홈</a></li>
-              <li><a href="/analytics">분석</a></li>
-              <li><a href="/reports">보고서</a></li>
-              <li><a href="/settings">설정</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
 
       <!-- 메인 컨테이너 -->
       <div class="main-container">
         <!-- 사이드바 -->
-        <aside class="sidebar">
-          <h3>메뉴</h3>
-          <ul class="sidebar-menu">
-            <li><a href="/">대시보드</a></li>
-            <li><a href="/users">사용자</a></li>
-            <li><a href="/products">상품</a></li>
-            <li><a href="/orders">주문</a></li>
-            <li><a href="/inventory">재고</a></li>
-            <li><a href="/reports">보고서</a></li>
-            <li><a href="/settings">설정</a></li>
-          </ul>
-        </aside>
 
         <!-- 메인 콘텐츠 -->
         <main class="main-content">
@@ -150,5 +125,7 @@
     </div>
 
     <script type="module" src="../src/js/utils/modal.js"></script>
+    <script type="module" src="../src/js/layout/includeHeader.js"></script>
+    <script type="module" src="../src/js/layout/includeSidebar.js"></script>
   </body>
 </html>
